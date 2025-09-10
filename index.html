@@ -201,46 +201,17 @@
         }
         
         .about-image {
-            height: 350px;
-            background: #f0f8ff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            flex: 1;
+            min-width: 300px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .about-logo-img {
+        .about-image img {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
+            height: auto;
             display: block;
-            margin: 0 auto;
-            max-width: 100%;
-            max-height: 100%;
-        }
-        
-        .about-image .logo-placeholder {
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .logo-placeholder h2 {
-            font-size: 32px;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-        
-        .logo-placeholder h3 {
-            font-size: 20px;
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-        
-        .logo-placeholder p {
-            color: var(--accent);
-            font-style: italic;
         }
         
         /* Diseases Section */
@@ -369,55 +340,82 @@
             resize: vertical;
         }
         
-        /* Team Section */
+        /* Team Section - IMPROVED */
         .team-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
         }
         
         .team-member {
             text-align: center;
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 25px;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .team-img-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #f0f0f0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
         }
         
         .team-img {
             width: 100%;
-            height: 250px;
-            background-color: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 60px;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
         
-        .team-info {
-            padding: 20px;
+        .team-member:hover .team-img {
+            transform: scale(1.05);
         }
         
         .team-info h3 {
             color: var(--primary);
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 22px;
         }
         
-        .team-info p {
+        .team-info .position {
             color: var(--secondary);
             margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 16px;
         }
         
         .contact-link {
             color: var(--primary);
             text-decoration: none;
             display: block;
-            margin: 5px 0;
+            margin: 8px 0;
+            transition: color 0.3s ease;
         }
         
         .contact-link:hover {
+            color: var(--accent);
             text-decoration: underline;
+        }
+        
+        .contact-link i {
+            margin-right: 8px;
+            width: 20px;
         }
         
         /* Footer */
@@ -539,6 +537,28 @@
                 order: -1;
                 margin-bottom: 20px;
             }
+            
+            /* Responsive adjustments for team section */
+            .team-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .team-img-container {
+                width: 180px;
+                height: 180px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .team-img-container {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .team-info h3 {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -597,7 +617,9 @@
                 </div>
                 <div class="about-image">
                     <div class="logo-placeholder">
-                        <img src="Ntlafatso/images/ntlafatso.jpg" alt="..." class="about-logo-img"> 
+                        <h2>Ntlafatso</h2>
+                        <h3>Foundation</h3>
+                        <p>For a better tomorrow</p>
                     </div>
                 </div>
             </div>
@@ -736,46 +758,57 @@
         </div>
     </section>
 
-    <!-- Team Section -->
+    <!-- Team Section - IMPROVED -->
     <section id="team">
         <div class="container">
             <h2 class="section-title">Our Team</h2>
             
             <div class="team-container">
                 <div class="team-member">
-                    <div class="team-img">
-                        
-                        <img src="Ntlafatso/images/rele.jpg" alt="..." class="about-logo-img" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                    <div class="team-img-container">
+                        <img src="Ntlafatso/images/rele.jpg" alt="Ms. Relebohile Lefojane" class="team-img">
                     </div>
                     <div class="team-info">
                         <h3>Ms. Relebohile Lefojane</h3>
-                        <p>Founder & President</p>
-                        <a href="tel:+27670351069" class="contact-link"><i class="fas fa-phone"></i> +27 67 035 1069</a>
-                        <a href="mailto:ntlafatso2018@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> ntlafatso2018@gmail.com</a>
+                        <p class="position">Founder & President</p>
+                        <a href="tel:+27670351069" class="contact-link">
+                            <i class="fas fa-phone"></i> +27 67 035 1069
+                        </a>
+                        <a href="mailto:ntlafatso2018@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i> ntlafatso2018@gmail.com
+                        </a>
                     </div>
                 </div>
                 
                 <div class="team-member">
-                    <div class="team-img">
-                        <img src="Ntlafatso/images/secretary.jpg" alt="Mrs. Limpho Mosebi" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                    <div class="team-img-container">
+                        <img src="Ntlafatso/images/secretary.jpg" alt="Mrs. Limpho Mosebi" class="team-img">
                     </div>
                     <div class="team-info">
                         <h3>Mrs. Limpho Mosebi</h3>
-                        <p>Secretary General</p>
-                        <a href="tel:+26658545016" class="contact-link"><i class="fas fa-phone"></i> +266 5854 5016</a>
-                        <a href="mailto:ntlafatso2018@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> ntlafatso2018@gmail.com</a>
+                        <p class="position">Secretary General</p>
+                        <a href="tel:+26658545016" class="contact-link">
+                            <i class="fas fa-phone"></i> +266 5854 5016
+                        </a>
+                        <a href="mailto:ntlafatso2018@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i> ntlafatso2018@gmail.com
+                        </a>
                     </div>
                 </div>
                 
                 <div class="team-member">
-                    <div class="team-img">
-                        <img src="Ntlafatso/images/smah.jpg" alt="Mrs Semangele Domela" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">
+                    <div class="team-img-container">
+                        <img src="Ntlafatso/images/smah.jpg" alt="Mrs Semangele Domela" class="team-img">
                     </div>
                     <div class="team-info">
                         <h3>Mrs Semangele Domela</h3>
-                        <p>Co-Founder</p>
-                        <a href="tel:+26657037621" class="contact-link"><i class="fas fa-phone"></i> +266 57037621</a>
-                        <a href="mailto:ntlafatso2018@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> ntlafatso2018@gmail.com</a>
+                        <p class="position">Co-Founder</p>
+                        <a href="tel:+26657037621" class="contact-link">
+                            <i class="fas fa-phone"></i> +266 57037621
+                        </a>
+                        <a href="mailto:ntlafatso2018@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i> ntlafatso2018@gmail.com
+                        </a>
                     </div>
                 </div>
             </div>
@@ -786,6 +819,7 @@
     <section id="contact">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
+            
             <div class="contact-container">
                 <div class="contact-info">
                     <h3>Get In Touch</h3>
@@ -805,34 +839,21 @@
                             <span>Lesotho, Africa</span>
                         </div>
                     </div>
-                    <!-- Google Map Embed -->
-                    <div style="margin-top:25px;">
-                        <iframe
-                            width="100%"
-                            height="250"
-                            frameborder="0"
-                            style="border:0; border-radius:8px;"
-                            src="https://www.google.com/maps?q=Quthing,+Lesotho&output=embed"
-                            allowfullscreen
-                            aria-hidden="false"
-                            tabindex="0">
-                        </iframe>
-                    </div>
                 </div>
                 
                 <div class="contact-form">
-                    <form id="contactForm" action="mailto:ntlafatso2018@gmail.com" method="POST" enctype="text/plain">
+                    <form>
                         <div class="form-group">
                             <label for="name">Your Name</label>
-                            <input type="text" id="name" name="Name" required>
+                            <input type="text" id="name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Your Email</label>
-                            <input type="email" id="email" name="Email" required>
+                            <input type="email" id="email" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Your Message</label>
-                            <textarea id="message" name="Message" required></textarea>
+                            <textarea id="message" required></textarea>
                         </div>
                         <button type="submit" class="btn">Send Message</button>
                     </form>
@@ -862,25 +883,12 @@
                 </div>
                 
                 <div class="footer-col">
-                    <h3>Our Location</h3>
-                    <p>
-                        <strong>Ntlafatso Foundation</strong><br>
-                        Quthing Lower Moyeni, Lesotho<br>
-                        <a href="mailto:ntlafatso2018@gmail.com" style="color:#ddd;">ntlafatso2018@gmail.com</a><br>
-                        Tel: <a href="tel:+26657037621" style="color:#ddd;">+266 57037621</a>
-                    </p>
-                    <h3>Operating Hours</h3>
-                    <p>
-                        Monday - Friday: 9 AM - 5 PM<br>
-                        Saturday: 9 AM - 1 PM<br>
-                        Sunday: Closed
-                    </p>
-                    <h3>Connect with Us</h3>
-                    <p>Follow us on social media</p>
-                    <!-- Example social icons, add your real links -->
-                    <a href="#" style="color:#4ab3bf; margin-right:10px;"><i class="fab fa-facebook fa-lg"></i></a>
-                    <a href="#" style="color:#4ab3bf; margin-right:10px;"><i class="fab fa-twitter fa-lg"></i></a>
-                    <a href="#" style="color:#4ab3bf; margin-right:10px;"><i class="fab fa-instagram fa-lg"></i></a>
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><a href="mailto:ntlafatso2018@gmail.com"><i class="fas fa-envelope"></i> ntlafatso2018@gmail.com</a></li>
+                        <li><a href="tel:+26658545016"><i class="fas fa-phone"></i> +266 5854 5016</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Lesotho, Africa</li>
+                    </ul>
                 </div>
             </div>
             
